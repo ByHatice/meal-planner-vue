@@ -1,0 +1,158 @@
+/* Global Styling */
+body {
+  font-family: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 16px;
+  margin: 10px;
+}
+
+header {
+  grid-area: header;
+}
+
+main {
+  grid-area: main;
+}
+
+aside {
+  grid-area: aside;
+}
+
+/* Cards-layouten för måltidsschema (mobilvy) */
+.mobile-schedule {
+  display: flex;
+  flex-direction: column;
+}
+
+.day-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  align-content: center;
+}
+
+.day-card h3 {
+  margin-top: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.input-recipe{
+  display: block;
+  max-width: 200px;
+  width: 200px;
+}
+
+.meal-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.meal-entry strong {
+  font-size: 16px;
+  flex-basis: 30%;
+}
+
+.meal-entry select {
+  flex-basis: 65%;
+  padding: 8px;
+}
+
+.meal-entry button {
+  padding: 5px;
+  margin-left: 10px;
+}
+
+.add-recipe-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-recipe-input input {
+  padding: 10px;
+  margin: 20px;
+}
+
+.add-recipe-choice button {
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}
+
+.add-recipe-choice label {
+  margin-right: 50px;
+}
+
+.priority {
+  color: rgb(211, 4, 4);
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto; 
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+select {
+  padding: 5px;
+  width: 100%;
+}
+
+.btn-danger {
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+}
+
+/* Desktop-first adjustments using media queries */
+@media (min-width: 768px) {
+  /* Skapa en grid-layout för större skärmar */
+  .grid-container {
+    display: grid;
+    grid-template-areas:
+      "header header header header"
+      "main main main aside";
+    grid-gap: 20px;
+  }
+
+  .input-recipe{
+    max-width: 800px;
+    width: 800px;
+  }
+
+  /* Visa veckoschemat som tabell på större skärmar */
+  .mobile-schedule {
+    display: none; /* Göm card-layouten */
+  }
+
+  .table-wrapper {
+    display: block;
+  }
+
+  .add-recipe-input {
+    flex-direction: row;
+  }
+
+  .add-recipe-input input {
+    flex: 1;
+  }
+
+  table {
+    display: table; /* Visa tabellen */
+  }
+}
